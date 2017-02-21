@@ -69,7 +69,12 @@ def heavy_func(key, local_cache=defaultdict(lambda: False)):
 
 if __name__ == '__main__':
     # First use case: Full use of the superpower !
-    print("First use case:")
+    print("First use case (populate the cache):")
+    start = time.time()
+    for i in range(50):
+        heavy_func(i)
+    print("Elapsed: %s" % str(time.time() - start))
+    print("First use case (show the superpower):")
     start = time.time()
     for i in range(50):
         heavy_func(i)
